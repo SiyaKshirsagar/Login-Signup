@@ -1,4 +1,6 @@
 
+
+
 .container {
   width: 300px;
   margin: 50px auto;
@@ -58,7 +60,7 @@
 }
 
 .lost-password span {
-  text-decoration: underline;
+  text-decoration:;
 }
 
 .submit-container {
@@ -144,6 +146,14 @@ button.submit:hover {
 
 .popup-content button:hover {
   background-color: #6895ce;
+}
+
+
+button.lostpass{
+  color: #1b47b8;
+  border: solid 1px rgb(86, 86, 181);
+  height:20px;
+  width: 95px;
 }
 
 

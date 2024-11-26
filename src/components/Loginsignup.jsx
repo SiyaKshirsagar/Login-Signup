@@ -3,6 +3,7 @@ import './Loginsignup.css';
 import person from "../assets/person.png";
 import email from "../assets/email.png";
 import lock from "../assets/lock.png";
+import { useNavigate } from 'react-router-dom';
 
 function Loginsignup({ onLoginSuccess }) {
   const [action, setAction] = useState("Login");
@@ -12,7 +13,9 @@ function Loginsignup({ onLoginSuccess }) {
     email: 'siyashivajik@gmail.com',
     password: 'sk2022',
   });
-  
+
+  const navigate = useNavigate();
+ 
   const [popupMessage, setPopupMessage] = useState("");
 
   const handleInputChange = (e) => {
@@ -25,8 +28,8 @@ function Loginsignup({ onLoginSuccess }) {
       if (formData.email === uname.email && formData.password === uname.password) {
         setPopupMessage("Login successful! Welcome back.");
         setTimeout(() => {
-          onLoginSuccess(); // Notify App that login was successful
-        }, 1000); // Delay for popup display
+          onLoginSuccess(); 
+        }, 1000); 
 
       } else if (!formData.email || !formData.password) {
         setPopupMessage("Please fill in all required fields.");
@@ -45,6 +48,9 @@ function Loginsignup({ onLoginSuccess }) {
 
   const closePopup = () => {
     setPopupMessage("");
+  };
+  const handleForgotPassword = () => {
+    navigate('/forgot-password'); 
   };
 
   return (
@@ -73,7 +79,7 @@ function Loginsignup({ onLoginSuccess }) {
 
       {action === "Login" && (
         <div className="lost-password">
-          Forgot Password? <span>Click Here</span>
+          Forgot Password?<span> <button className='lostpass' onClick={handleForgotPassword}>Click Here</button></span>
         </div>
       )}
 
